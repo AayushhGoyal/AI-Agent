@@ -1,0 +1,56 @@
+# AI Agent for CSV File Monitoring and Processing
+
+This project implements an AI agent that monitors a specified directory for changes to CSV files. The agent checks for data discrepancies such as duplicates and missing values, describes the columns using an AI model, and logs all relevant information.
+
+## Features
+
+- **File Monitoring**: Continuously monitors a specified directory for modifications to CSV files.
+- **Data Discrepancy Detection**: Checks for duplicates and missing values in CSV files.
+- **AI Descriptions**: Uses an AI model to describe columns and explain discrepancies in the data.
+- **Automatic Cleanup**: Removes duplicate rows from CSV files.
+- **Logging**: Logs all actions and AI-generated content to a log file and console.
+
+## Setup and Installation
+
+### Prerequisites
+
+- Python 3.6+
+- `pandas` library
+- `watchdog` library
+- `logging` module
+- `google.generativeai` library
+
+### Installation
+
+1. Clone this repository or download the script file.
+2. Install the required Python libraries:
+    ```sh
+    pip install pandas watchdog google-generativeai
+    ```
+
+3. Replace the placeholder API key in the script with your actual OpenAI API key:
+    ```python
+    genai.configure(api_key='YOUR_OPENAI_API_KEY')
+    ```
+
+## Usage
+
+1. **Configuration**: Ensure the `path` variable in the script points to the directory you want to monitor:
+    ```python
+    path = r"C:\Users\YourUsername\YourDirectory"
+    ```
+
+2. **Run the Script**:
+    ```sh
+    python your_script_name.py
+    ```
+
+### Script Details
+
+- **use_llama2_to_explain(discrepancy)**: Uses an AI model to generate explanations for data discrepancies.
+- **describe_csv_columns(file_path)**: Uses an AI model to describe the columns of a CSV file, including sample values.
+- **remove_duplicates(df, file_path)**: Removes duplicate rows from the DataFrame and updates the CSV file.
+- **check_file_for_discrepancies(file_path)**: Checks for duplicates and missing values in the CSV file, describes the columns, and logs the results.
+
+
+
